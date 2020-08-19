@@ -1,0 +1,28 @@
+.levels-game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 25px;
+  &__item {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    background-color: #008966;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
+  }
+}
+
+.levels-game__item--active {
+  background-color: #00bc8c;
+}
