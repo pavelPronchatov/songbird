@@ -12,6 +12,7 @@ body {
   margin: 0 auto;
   max-width: 1440px;
   box-sizing: border-box;
+  position: relative;
 }
 h1 {
   margin: 0;

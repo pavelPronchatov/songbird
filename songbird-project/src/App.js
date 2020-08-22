@@ -1,10 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import './App.scss';
 import birdsData from './birdsData';
 import Header from './Header/Header';
 import LevelsGame from './level-game/levels-game';
 import RandomBird from './word/randomBird';
 import Answer from './answer/answer';
+import ResultGame from './result-game/result-game'
 
 
 const randomInt = (min, max) => {
@@ -14,10 +15,18 @@ const randomInt = (min, max) => {
 
 function App() {
   let [level, setLevel] = useState(0);
-  const traine = birdsData[level];
+  let traine = birdsData[level];
   const [userAnswer, setAnswer] = useState('');
   const [userScore, setUserScore] = useState(0);
   const [allScore, setAllScore] = useState(0);
+  const audioCorrect = useRef();
+  const audioError = useRef();
+  
+
+    if (level === 6) {
+      traine = birdsData[0];
+    }
+
   const [randomBirdItem, setRandomBirdItem] = useState(traine[randomInt(0, 5)]);
 
 
@@ -51,11 +60,21 @@ function App() {
     <div className='container'>
       <Header allScore={allScore}/>
       <LevelsGame level={level}/>
+      <div style={{ display: level === 6 ? 'flex' : 'none'}}>
+      <ResultGame allScore={allScore} />
+      </div>
+      
       <RandomBird randomBirdItem={randomBirdItem} userAnswer={userAnswer}/>
-      <Answer level={level} dataList={traine} randomBirdItem={randomBirdItem} updateAnswer={updateAnswer} updateScore={updateScore}/>
-      <button className='next-level' 
+      <Answer level={level} dataList={traine} randomBirdItem={randomBirdItem} updateAnswer={updateAnswer} updateScore={updateScore} audioCorrect={audioCorrect} audioError={audioError}/>
+      <button className={userAnswer ? 'next-level next-level--green' : 'next-level'} 
         onClick={handleLevel} disabled={userAnswer ? false : true}>Next Level</button>
+
+
+      <audio ref={audioCorrect} src='correct.mp3' className='correct-audio'></audio>
+      <audio ref={audioError} src='error.mp3' className='error-audio'></audio>
     </div>
+
+
   );
 }
 

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 // let scoreCurrent = 5;
 let isAnswer = true;
 const Answer = (props) => {
-  const {dataList, randomBirdItem, updateAnswer, level, updateScore} = props;
+  const {dataList, randomBirdItem, updateAnswer, level, updateScore, audioCorrect, audioError} = props;
   const [activeAnswerData, setactiveAnswerData] = useState(null);// null 
   //const [birdItemActive, setBirdItemActive] = useState();
   const [scoreCurrent, setScoreCurrent] = useState(5);
@@ -30,7 +30,7 @@ const Answer = (props) => {
 
       if (birdItem.name === randomBirdItem.name) {
         console.log(scoreCurrent);
-
+        audioCorrect.current.play();
         if (isAnswer) {
           updateScore(scoreCurrent);
         }
@@ -38,6 +38,7 @@ const Answer = (props) => {
         console.log(isAnswer);
       } else {
         if (isAnswer) {
+          audioError.current.play();
           console.log('mibus');
           setScoreCurrent(scoreCurrent - 1);
           console.log(scoreCurrent);
