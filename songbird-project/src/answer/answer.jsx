@@ -5,12 +5,9 @@ import AnswerList from './answer-list/answer-list'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-// let scoreCurrent = 5;
 let isAnswer = true;
 const Answer = (props) => {
-  const {dataList, randomBirdItem, updateAnswer, level, updateScore, audioCorrect, audioError} = props;
-  const [activeAnswerData, setactiveAnswerData] = useState(null);// null 
-  //const [birdItemActive, setBirdItemActive] = useState();
+  const {dataList, randomBirdItem, updateAnswer, level, updateScore, audioCorrect, audioError,activeAnswerData, updateActiveAnswerData} = props;
   const [scoreCurrent, setScoreCurrent] = useState(5);
 
   useEffect(() => {
@@ -24,7 +21,8 @@ const Answer = (props) => {
     
     dataList.map((el) => {
       if (birdItem.name === el.name) {
-        setactiveAnswerData(el);
+        updateActiveAnswerData(el);
+
       }
     })
 

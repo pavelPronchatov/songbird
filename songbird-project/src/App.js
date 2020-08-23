@@ -19,6 +19,7 @@ function App() {
   const [userAnswer, setAnswer] = useState('');
   const [userScore, setUserScore] = useState(0);
   const [allScore, setAllScore] = useState(0);
+  const [activeAnswerData, setactiveAnswerData] = useState(null);
   const audioCorrect = useRef();
   const audioError = useRef();
   
@@ -41,6 +42,11 @@ function App() {
     setAnswer(value);
   }, [])
 
+  const updateActiveAnswerData = useCallback((value) => {
+    setactiveAnswerData(value);
+  }, [])
+
+
   const updateScore = useCallback((value) => {
     setUserScore(value);
     setAllScore(allScore + value);
@@ -53,6 +59,7 @@ function App() {
     console.log(level);
     if (level > 0) {
       setAnswer(false);
+      setactiveAnswerData(null);
     }
   }
 
@@ -65,7 +72,17 @@ function App() {
       </div>
       
       <RandomBird randomBirdItem={randomBirdItem} userAnswer={userAnswer}/>
-      <Answer level={level} dataList={traine} randomBirdItem={randomBirdItem} updateAnswer={updateAnswer} updateScore={updateScore} audioCorrect={audioCorrect} audioError={audioError}/>
+      <Answer 
+        level={level}
+        dataList={traine}
+        randomBirdItem={randomBirdItem}
+        updateAnswer={updateAnswer}
+        updateScore={updateScore}
+        audioCorrect={audioCorrect}
+        audioError={audioError}
+        updateActiveAnswerData={updateActiveAnswerData}
+        activeAnswerData={activeAnswerData}
+        />
       <button className={userAnswer ? 'next-level next-level--green' : 'next-level'} 
         onClick={handleLevel} disabled={userAnswer ? false : true}>Next Level</button>
 

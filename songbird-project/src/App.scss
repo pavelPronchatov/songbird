@@ -21,3 +21,8 @@
 .next-level--green {
   background-color: #00bc8c;
 }
+@media (max-width: 600px) {
+  .answer__wrapper {
+    flex-direction: column;
+  }
+}

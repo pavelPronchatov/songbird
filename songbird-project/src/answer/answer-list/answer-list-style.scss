@@ -37,3 +37,11 @@
 .answer-btn--success {
   background-color: #00bc8c;
 }
+
+@media (max-width: 600px) {
+  .answer-list {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+}

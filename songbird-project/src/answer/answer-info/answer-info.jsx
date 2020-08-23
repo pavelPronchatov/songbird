@@ -10,6 +10,7 @@ const AnswerInfo = (props) => {
 
   const isActiveAnswer = () => {
     if (activeAnswerData === null) {
+      console.log(activeAnswerData);
       return (
         <div className="answer-info--no-info" style={{display: 'flex'}}>
           <span>Послушайте плеер.</span>

@@ -105,3 +105,20 @@
     flex: 0;
   }
 }
+
+
+@media (max-width: 600px) {
+  .answer-info {
+    width: 100%;
+    &__content {
+      flex-direction: column;
+    }
+    &__img {
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+    &__titles {
+      text-align: center;
+    }
+  }
+}

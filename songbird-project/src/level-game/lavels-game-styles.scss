@@ -4,6 +4,8 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 25px;
+  border-radius: 10px;
+  overflow: hidden;
   &__item {
     flex-grow: 1;
     border: none;
@@ -14,12 +16,7 @@
     color: #fff;
     text-align: center;
     font-size: 14px;
-    &:first-child {
-      border-radius: 10px 0 0 10px;
-    }
-    &:last-child {
-      border-radius: 0 10px 10px 0;
-    }
+    cursor: pointer;
   }
 }
 
