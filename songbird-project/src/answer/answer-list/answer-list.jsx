@@ -29,9 +29,14 @@ const AnswerList = (props) => {
           console.log(arrAnswer);
           setAnswerState(arrAnswer);
         } else {
-          arrAnswer[index] = false;
-          console.log(arrAnswer);
-          setAnswerState(arrAnswer);
+          if (arrAnswer.includes(true)) {
+            arrAnswer[index] = undefined;
+          } else {
+            arrAnswer[index] = false;
+            console.log(arrAnswer);
+            setAnswerState(arrAnswer);
+          }
+
         }
         }
       }

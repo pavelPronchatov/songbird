@@ -3,14 +3,16 @@ import './lavels-game-styles.scss';
 
 const LevelsGame = (props) => {
   const {level} = props;
+  const arrLevel = ['Разминка', 'Воробьиные', 'Лесные птицы', 'Певчие птицы', 'Хищные птицы', 'Морские птицы'];
   return (
     <div className='levels-game'>
-      <button className={level === 0 ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>Разминка</button>
-      <button className={level === 1 ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>Воробьиные</button>
-      <button className={level === 2 ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>Лесные птицы</button>
-      <button className={level === 3 ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>Певчие птицы</button>
-      <button className={level === 4 ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>Хищные птицы</button>
-      <button className={level === 5 ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>Морские птицы</button>
+      {
+        arrLevel.map((el, index) => {
+          return (
+            <button key={index} className={level === index ? 'levels-game__item levels-game__item--active' : 'levels-game__item'}>{el}</button>
+          )
+        })
+      }
     </div>
   )
 }
