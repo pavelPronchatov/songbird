@@ -1,0 +1,25 @@
+.levels-game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+  &__item {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    background-color: #008966;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+.levels-game__item--active {
+  background-color: #00bc8c;
+}

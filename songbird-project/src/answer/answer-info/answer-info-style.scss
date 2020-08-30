@@ -1,0 +1,124 @@
+.answer-info {
+  width: 48%;
+  padding: 15px;
+  border: 1px solid #444;
+  background-color: #303030;
+  border-radius: 10px;
+  box-sizing: border-box;
+  &--no-info {
+    display: none;
+    // display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    & span {
+      margin-bottom: 10px;
+    }
+  }
+  &__wrapper {
+    //display: none;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  &__img {
+    width: 200px;
+    height: 155px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+  &__desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+  }
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    .titles__title {
+      font-size: 22px;
+      font-weight: 400;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #555;
+    }
+    .titles__type-bird {
+      font-size: 14px;
+      font-weight: 400;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #555;
+      margin-bottom: 20px;
+    }
+  }
+  .rhap_container {
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+  .rhap_additional-controls {
+    display: none;
+  }
+  .rhap_progress-section {
+    display: flex;
+    flex-grow: 6;
+    align-items: center;
+  }
+  .rhap_volume-controls {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1 0 auto;
+    margin-left: 15px;
+  }
+  .rhap_time {
+    color: #fff;
+    font-size: 14px;
+  }
+  .rhap_volume-bar {
+    background-color: #fff;
+  }
+  .rhap_volume-indicator {
+    background-color: #00bc8c;
+  }
+  .rhap_progress-bar  {
+    background-color: #fff;
+  }
+  .rhap_progress-indicator {
+    background-color: #00bc8c;
+  }
+  .rhap_progress-filled {
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  }
+  .rhap_progress-container,
+  .rhap_volume-button,
+  .rhap_volume-bar-area,
+  .rhap_play-pause-button {
+    outline: none;
+  }
+  path {
+    fill: #00bc8c;
+  }
+  .rhap_controls-section {
+    flex: 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .answer-info {
+    width: 100%;
+    &__content {
+      flex-direction: column;
+    }
+    &__img {
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+    &__titles {
+      text-align: center;
+    }
+  }
+}
